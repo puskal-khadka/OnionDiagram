@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OnionDiagramView">
+        <attr name="textColor" format="color"/>
+        <attr name="backgroundColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="onionTextAlign"  format="enum">
+            <enum name="sameRow" value="0"/>
+            <enum name="differentRow" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

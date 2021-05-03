@@ -1,0 +1,3 @@
+include ':OnionDiagram'
+include ':app'
+rootProject.name = "Onion Diagram"
