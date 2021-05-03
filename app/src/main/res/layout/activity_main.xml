@@ -9,8 +9,8 @@
 
     <com.puskal.oniondiagram.OnionDiagramView
         android:id="@+id/viewOnion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:onionTextAlign="differentRow"
         app:textColor="#1111ff"
-        app:textSize="8sp" />
+        app:textSize="8sp"
+        app:diagramType="CalculatedPrecise"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

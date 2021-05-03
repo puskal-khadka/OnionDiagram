@@ -8,5 +8,11 @@
             <enum name="sameRow" value="0"/>
             <enum name="differentRow" value="1"/>
         </attr>
+
+
+        <attr name="diagramType" format="enum">
+            <enum name="CalculatedPrecise" value="0"/>
+            <enum name="UniformDecreasing" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>

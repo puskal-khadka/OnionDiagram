@@ -26,15 +26,18 @@ class OnionDiagramView : View {
     }
 
     var textAlignPattern: Int = 0
+    var diagramType: Int = 0
 
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        val typedArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.OnionDiagramView, 0, 0)
+        val typedArray: TypedArray =
+            context.obtainStyledAttributes(attrs, R.styleable.OnionDiagramView, 0, 0)
         textSize = typedArray.getDimensionPixelSize(R.styleable.OnionDiagramView_textSize, 14)
         textColor = typedArray.getColor(R.styleable.OnionDiagramView_textColor, Color.BLACK)
         bgColor = typedArray.getColor(R.styleable.OnionDiagramView_backgroundColor, Color.WHITE)
 
         textAlignPattern = typedArray.getInt(R.styleable.OnionDiagramView_onionTextAlign, 1)
+        diagramType = typedArray.getInt(R.styleable.OnionDiagramView_diagramType, 0)
         typedArray.recycle()
     }
 
@@ -52,8 +55,9 @@ class OnionDiagramView : View {
 
         if (valueList.isEmpty()) {
             //for testing --> incase if data not send
-             colorList = arrayListOf<Int>(Color.RED, Color.CYAN, Color.YELLOW, Color.MAGENTA, Color.GREEN)
-             valueList = arrayListOf<Float>(300F, 200F, 350F, 150F, 250F)
+            colorList =
+                arrayListOf<Int>(Color.RED, Color.CYAN, Color.YELLOW, Color.MAGENTA, Color.GREEN)
+            valueList = arrayListOf<Float>(300F, 200F, 350F,250F)
         }
 
 
@@ -75,7 +79,7 @@ class OnionDiagramView : View {
         }
 
 
-        var largeRadius = width / 2.toFloat()
+        val largeRadius = width / 2.toFloat()
 
 
         val dataList = arrayListOf<Float>()
@@ -104,9 +108,28 @@ class OnionDiagramView : View {
         for (i in 0 until valueList.size) {
             paint.color = integratedColorList[i]
 
-            mainRadius = (largeRadius / dataList[0]) * dataList[i]
-            xPix = (x / 2) + largeRadius - mainRadius - i * 10
+            when (diagramType) {
+                0 -> {
+                    mainRadius = (largeRadius / dataList[0]) * dataList[i]
+                    xPix = (x / 2) + largeRadius - mainRadius - i * 10
+                }
+                1 -> {
+
+                    if (i != 0) {
+                        mainRadius = mainRadius - (largeRadius / dataList.size) + (largeRadius / (dataList.size * 4F))
+
+                        xPix = ((x / 2) + largeRadius) - mainRadius - i * 10
+
+                    } else {
+                        mainRadius = (largeRadius / dataList[0]) * dataList[i]
+
+                    }
+                }
+            }
+
             canvas?.drawCircle(xPix, yPix, mainRadius, paint)
+
+
 
             paint.textAlign = Paint.Align.LEFT
             paint.setColor(textColor)
@@ -123,8 +146,7 @@ class OnionDiagramView : View {
             } else
                 textXPix = xPix - mainRadius + 8
 
-
-            canvas?.drawText("${dataList[i]}%", textXPix, textYPix, paint)
+            canvas?.drawText("%.1f ".format(dataList[i])+"%", textXPix, textYPix, paint)
 
 
         }
