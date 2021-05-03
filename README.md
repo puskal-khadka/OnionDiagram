@@ -15,6 +15,16 @@ dependencies {
 }
 ```
 
+## Maven
+
+```bash 
+	<dependency>
+	    <groupId>com.github.puskal-khadka</groupId>
+	    <artifactId>OnionDigram</artifactId>
+	    <version>1.0.1</version>
+	</dependency>
+```
+
 
 ## Usage
 
