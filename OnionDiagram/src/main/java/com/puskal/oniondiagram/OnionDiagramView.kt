@@ -29,6 +29,9 @@ class OnionDiagramView : View {
     var diagramType: Int = 0
 
 
+    public var showRawData: Boolean = false
+
+
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         val typedArray: TypedArray =
             context.obtainStyledAttributes(attrs, R.styleable.OnionDiagramView, 0, 0)
@@ -57,7 +60,7 @@ class OnionDiagramView : View {
             //for testing --> incase if data not send
             colorList =
                 arrayListOf<Int>(Color.RED, Color.CYAN, Color.YELLOW, Color.MAGENTA, Color.GREEN)
-            valueList = arrayListOf<Float>(300F, 200F, 350F,250F)
+            valueList = arrayListOf<Float>(300F, 200F, 350F, 250F)
         }
 
 
@@ -116,7 +119,8 @@ class OnionDiagramView : View {
                 1 -> {
 
                     if (i != 0) {
-                        mainRadius = mainRadius - (largeRadius / dataList.size) + (largeRadius / (dataList.size * 4F))
+                        mainRadius =
+                            mainRadius - (largeRadius / dataList.size) + (largeRadius / (dataList.size * 4F))
 
                         xPix = ((x / 2) + largeRadius) - mainRadius - i * 10
 
@@ -146,7 +150,13 @@ class OnionDiagramView : View {
             } else
                 textXPix = xPix - mainRadius + 8
 
-            canvas?.drawText("%.1f ".format(dataList[i])+"%", textXPix, textYPix, paint)
+            var displayText=""
+            if(showRawData)
+                displayText=valueList[i].toString()
+            else
+                displayText="%.1f ".format(dataList[i]) + "%"
+
+            canvas?.drawText(displayText, textXPix, textYPix, paint)
 
 
         }
