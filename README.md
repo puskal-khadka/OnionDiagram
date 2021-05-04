@@ -67,23 +67,25 @@ dependencies {
 
 ## PARAMETERS AND FUNCTIONS
 * ```app:diagramType="CalculatedPrecise"```
-  * This will show circle layer,radius according to data passed. This is Default
+  * This will show each circle layeer,radius according to data passed. This is Default
 
 * ```app:diagramType="UniformDecreasing"```
-  * This will show inner layer of uniform radius, size irrespective to data
+  * This will make inner layer of cicle uniform size , irrespective to data
 
 * ```app:onionTextAlign="differentRow"```
-  * text align will be down respective to another text instead of same line. This 
-     default
+  * text align will be down respective to another text instead of same line. This is  default
 
 * ```app:onionTextAlign="sameRow"```
-  * it will show text in layer that will align in same row
+  * It will show text in layer that will align in same row
 
 * ```app:textColor="#11ffff"```
-  * to change text color. Default color is black 
+  * To change text color. Default color is black 
 
 * ``` app:textSize="8sp" ```
-  * to change text size. Default size 14sp
+  *To change text size. Default size 14sp
+ 
+ * ```  onionDiagramView.showRawData=false ```
+    * This is boolean field, if it is set false then passed data is automatic conveted to percentage and shown in layer. If set true same passed raw data will be shown
 
        
 
