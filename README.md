@@ -11,7 +11,7 @@ Android library for onion diagram i.e also refered as stacked vann diagram
 ```bash
 dependencies {
     ...
-    implementation 'com.github.puskal-khadka:OnionDigram:1.0.1'
+    implementation 'com.github.puskal-khadka:OnionDiagram:1.0.2'
 }
 ```
 
@@ -20,8 +20,8 @@ dependencies {
 ```bash 
 	<dependency>
 	    <groupId>com.github.puskal-khadka</groupId>
-	    <artifactId>OnionDigram</artifactId>
-	    <version>1.0.1</version>
+	    <artifactId>OnionDiagram</artifactId>
+	    <version>1.0.2</version>
 	</dependency>
 ```
 
