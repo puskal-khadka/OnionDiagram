@@ -52,9 +52,8 @@ dependencies {
 
      onionDiagramView.valueList=arrayListOf<Float>(300F, 200F,350F,150F,250F)
 
-     //to give custom color
-     //if you not define color list, default color will be shown, so you can
-     //skip this color list
+
+     //if you want to give your custom color to each layer then passed color as follow otherwise skip
      val colorList= arrayListOf(
                      ContextCompat.getColor(requireContext(),R.color.red),
                      ContextCompat.getColor(requireContext(),R.color.green),
@@ -67,25 +66,25 @@ dependencies {
 
 ## PARAMETERS AND FUNCTIONS
 * ```app:diagramType="CalculatedPrecise"```
-  * This will show each circle layeer,radius according to data passed. This is Default
+  * Using it, each layer's size,radius will be as according to passed data . This is Default
 
 * ```app:diagramType="UniformDecreasing"```
-  * This will make inner layer of cicle uniform size , irrespective to data
+  * Each layer's radius will be unifrom, irrespective to data
 
 * ```app:onionTextAlign="differentRow"```
-  * text align will be down respective to another text instead of same line. This is  default
+  * Text in one layer will be at different row in comparasion to text in another laye . This is  default
 
 * ```app:onionTextAlign="sameRow"```
-  * It will show text in layer that will align in same row
+  * Text in each layer will align in same row
 
 * ```app:textColor="#11ffff"```
   * To change text color. Default color is black 
 
 * ``` app:textSize="8sp" ```
-  *To change text size. Default size 14sp
+  * To change text size. Default size 14sp
  
  * ```  onionDiagramView.showRawData=false ```
-    * This is boolean field, if it is set false then passed data is automatic conveted to percentage and shown in layer. If set true same passed raw data will be shown
+    * This is boolean field, if it is set false then passed data will be automatic conveted to percentage and shown in layer. If set true, same passed data will be shown
 
        
 
